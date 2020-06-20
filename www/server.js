@@ -11,7 +11,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const cors_1 = __importDefault(require("cors"));
 const express_1 = __importDefault(require("express"));
 const sequelize_1 = require("./sequelize");
 const index_router_1 = require("./controllers/v0/index.router");
@@ -22,17 +21,13 @@ const model_index_1 = require("./controllers/v0/model.index");
     yield sequelize_1.sequelize.addModels(model_index_1.V0_USER_MODELS);
     yield sequelize_1.sequelize.sync();
     const app = express_1.default();
+    app.use(function (req, res, next) {
+        res.header("Access-Control-Allow-Origin", '*');
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-Access-Token");
+        next();
+    });
     const port = process.env.PORT || 8080;
     app.use(body_parser_1.default.json());
-    app.use(cors_1.default({
-        allowedHeaders: [
-            'Origin', 'X-Requested-With',
-            'Content-Type', 'Accept',
-            'X-Access-Token', 'Authorization',
-        ],
-        methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
-        origin: config_1.config.url,
-    }));
     app.use('/api/v0/', index_router_1.IndexRouter);
     // Root URI call
     app.get('/', (req, res) => __awaiter(this, void 0, void 0, function* () {

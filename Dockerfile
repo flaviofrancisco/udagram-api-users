@@ -1,5 +1,5 @@
 # Use NodeJS base image
-FROM node:13 as base_node
+FROM node:13.14 as base_node
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -9,9 +9,8 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
-
-FROM base_node
+#RUN npm install
+RUN npm ci --only=production
 
 ENV POSTGRES_USERNAME {$POSTGRES_USERNAME}
 ENV POSTGRES_PASSWORD {$POSTGRES_PASSWORD}
