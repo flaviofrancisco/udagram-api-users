@@ -3,7 +3,7 @@ import { config } from './config/config';
 
 
 // Configure AWS
-AWS.config = AWS.config.loadFromPath('./config.json');
+AWS.config = AWS.config.loadFromPath('./aws-config.json');
 
 export const s3 = new AWS.S3({
     signatureVersion: 'v4',

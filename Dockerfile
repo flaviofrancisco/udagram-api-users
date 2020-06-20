@@ -9,8 +9,8 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install dependencies
-#RUN npm install
-RUN npm ci --only=production
+RUN npm install
+#RUN npm ci --only=production
 
 ENV POSTGRES_USERNAME {$POSTGRES_USERNAME}
 ENV POSTGRES_PASSWORD {$POSTGRES_PASSWORD}

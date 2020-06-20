@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const AWS = require("aws-sdk");
 const config_1 = require("./config/config");
 // Configure AWS
-AWS.config = AWS.config.loadFromPath('./config.json');
+AWS.config = AWS.config.loadFromPath('./aws-config.json');
 exports.s3 = new AWS.S3({
     signatureVersion: 'v4',
     region: config_1.config.aws_region,
