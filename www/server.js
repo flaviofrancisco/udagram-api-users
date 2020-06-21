@@ -21,6 +21,7 @@ const model_index_1 = require("./controllers/v0/model.index");
     yield sequelize_1.sequelize.addModels(model_index_1.V0_USER_MODELS);
     yield sequelize_1.sequelize.sync();
     const app = express_1.default();
+    console.log('Expecting requests from...', config_1.config.url);
     app.use(function (req, res, next) {
         res.header("Access-Control-Allow-Origin", config_1.config.url);
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-Access-Token");

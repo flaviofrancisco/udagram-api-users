@@ -15,11 +15,13 @@ import {V0_USER_MODELS} from './controllers/v0/model.index';
 
   const app = express();
 
+  console.log('Expecting requests from...', config.url);
+  
   app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", config.url);
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-Access-Token");
     next();
-  });   
+  });  
 
   const port = process.env.PORT || 8080;
 
