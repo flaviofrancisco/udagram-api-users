@@ -2,3 +2,4 @@ node_modules
 /service.env
 /set_env.sh
 /aws-config.json
+/secret/aws-config.json
