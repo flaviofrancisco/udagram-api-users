@@ -12,6 +12,6 @@ exports.config = {
     'url': process.env.URL,
     'jwt': {
         'secret': process.env.JWT_SECRET,
-    },
+    }
 };
 //# sourceMappingURL=config.js.map
