@@ -1,3 +1,3 @@
-Please check the following file for instructions:
+Please check the following link for instructions:
 
-https://github.com/flaviofrancisco/udagram/edit/master/readme.md
+https://github.com/flaviofrancisco/udagram
